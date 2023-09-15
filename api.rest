@@ -1,0 +1,25 @@
+@url = "http://localhost:3000/"
+
+GET  https://eunice-person-crud-api.onrender.com/api
+###
+POST https://eunice-person-crud-api.onrender.com/api
+Content-Type: application/json
+
+{
+      
+      "name": "Quadri Usman"
+
+}
+######################################
+GET https://eunice-person-crud-api.onrender.com/api/5
+#####################################
+GET https://eunice-person-crud-api.onrender.com/api
+######
+PUT https://eunice-person-crud-api.onrender.com/api/5
+Content-Type: application/json
+
+{      
+"name": "Ahmada Usman"
+}
+#####
+DELETE https://eunice-person-crud-api.onrender.com/api/5

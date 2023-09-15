@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+  <title>TodoList | Edit</title>
+  <link rel="stylesheet" href="/static/todoList.css" type="text/css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Candal|Chewy&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
+  <div class="todo-container">
+    <h2>Update Person</h2>
+    <div class="todo">
+      <form action="/api/update/:id" method="PUT" class="todo-header">
+        <input type="text" name="name" />
+        <button type="submit"><span class="fas fa-plus">Update</button>
+      </form>
+      <ul class="todo-list">
+        <% persons.forEach(details => { %> <% if (details._id == idPerson) { %>
+        <li class="todo-list-item">
+          <form action="/api/update/<%= details._id %>" method="POST">
+            <input type="text" value="<%= details.name %>" name="name" />
+            <button type="submit">Update</button>
+            <a href="/" class="cancel">Cancel</a>
+          </form>
+        </li>
+        <% } else { %>
+        <li class="todo-list-item">
+          <div class="todo-list-item-name"><%= details.name %></div>
+          <a href="/api/update/<%= details._id %>" class="edit">
+            <span class="fas fa-edit"></span>
+            <span>Edit</span>
+          </a>
+          <a href="/api/remove/<%= details._id %>" class="remove">
+            <span class="fas fa-times"></span>
+            <span>Delete</span>
+          </a>
+        </li>
+        <% } %> <% }) %>
+      </ul>
+    </div>
+  </div>
+</body>
